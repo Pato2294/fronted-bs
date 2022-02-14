@@ -1,13 +1,13 @@
 // Se parte con las variables que se ocuparan en el proceso a lo largo del funcionamiento las cuales estan definidas
 //por nombres autologicos(palabras que se definen por si mismas)
-//const API_URL='https://backend-bss.herokuapp.com/'; //La URL de la Api a la cual iran todas las peticiones para ser respondidas
-const API_URL='http://192.168.0.26:5050/'; 
+const API_URL='https://backend-bss.herokuapp.com/'; //La URL de la Api a la cual iran todas las peticiones para ser respondidas
+//const API_URL='http://192.168.0.26:5050/'; 
 let productos=[];//Arreglo de productos
 let productosEncontrados=[];//Arreglo de productos encontrados,que seran el resultado de la busqueda en la pagina
 let productosFiltrados=[];//Arreglo de productos filtrados,que seran el resultado del filtrado realizado en la pagina
 let categorias=[];//Arreglo que almacenara las categorias para ser utilizadas como filtrado
 let spinner=document.querySelector('#cargaP');//Elemento que indicara cuando una accion aun sigue en proceso
-let ContenedorProductos=document.querySelector('#productos');//Variable que obtiene las propiedades de un elemento selecionado
+let ContenedorProductos=document.querySelector('#resultados');//Variable que obtiene las propiedades de un elemento selecionado
 let ContenedorCategorias=document.querySelector('#categorias');// en este caso los contenedores de productos y categorias
 //Esta funcion se encarga que cargue todo el DOM para que no se produzcan error al momento de cargar la pagina
 window.addEventListener('DOMContentLoaded',() =>{
@@ -40,8 +40,12 @@ const obtenerProductos=()=>{
     .then(data=>{//Cuando se recibe la respuesta sin ningun error se procede a la obtencion de los datos
         spinner.style.display='none';// En el caso de no recibir datos se marcara en pantalla que no se encontraron resultados 
         // de caso contrario se mostraran en la pagina
-        (data!=undefined ||data.data.length!=0)?
-        (productos=data.data,mostrarProductos(productos)) : ContenedorProductos.innerHTML=`<div class="h6">No se encontraron resultados</div>`
+        if(data!=undefined)
+        {
+            data.data.length!=0? (productos=data.data,mostrarProductos(productos),ContenedorProductos.style.display="none") : ContenedorProductos.style.display="block";
+        }else{
+            ContenedorProductos.style.display="block";
+        }
     })
 }
 //Esta funcion se encargara de hacer la peticion y de obtener la respuesta del servidor para almacenar las categorias
@@ -70,8 +74,13 @@ const obtenerBusqueda=(buscar)=>{
     .then(data=>{
 
         spinner.style.display='none';
-        (data!=undefined ||data.data.length!=0)?
-        (productosEncontrados=data.data,mostrarProductos(productosEncontrados)) : ContenedorProductos.innerHTML=`<div class="h6">No se encontraron resultados</div>`
+        if(data!=undefined)
+        {
+            productosEncontrados=data.data;
+            productosEncontrados.length!=0? 
+            (productosEncontrados=data.data,mostrarProductos(productosEncontrados),ContenedorProductos.style.display="none") : (mostrarProductos(productosEncontrados),ContenedorProductos.style.display="block");
+        }
+        
       
     })
 }
@@ -90,10 +99,14 @@ const obtenerProductosFiltrados=(filtro)=>{
         return error;
       })
     .then(data=>{
-        productosFiltrados=data.productosFiltrados;
-        console.log(data);
-        mostrarProductos(productosFiltrados);
+    
         spinner.style.display='none';
+        if(data!=undefined)
+        {
+            productosFiltrados=data.productosFiltrados;
+            productosFiltrados.length!=0? 
+            (productosFiltrados=data.productosFiltrados,mostrarProductos(productosFiltrados),ContenedorProductos.style.display="none") :(mostrarProductos(productosFiltrados),ContenedorProductos.style.display="block") ;
+        }
     })
 }
 // Estas variables alamacenan la propiedades de los elementon indicados por sus ids o sus clases segun la conveniencia para generar el seteo o el ingreso de datos a la pagina
@@ -119,7 +132,7 @@ const divFiltroCategoria=document.querySelector('#categorias');
 // esto tambien servira para saber segun los resultados se tendra que mostrar u ocultar algun elemento
 //Esta funcion se encarga de mostrar los productos sin importar su manipulacion,busqueda, filtrado  
 const mostrarProductos =(prod)=>{
-    console.log(prod);
+    console.log(prod.length);
     try {
             let listaHTML="";
             let energetica="",pisco="",ron="",bebida="",snack="",cerveza="",vodka="";
