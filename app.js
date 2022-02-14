@@ -1,6 +1,7 @@
 // Se parte con las variables que se ocuparan en el proceso a lo largo del funcionamiento las cuales estan definidas
 //por nombres autologicos(palabras que se definen por si mismas)
-const API_URL='https://backend-bss.herokuapp.com//'; //La URL de la Api a la cual iran todas las peticiones para ser respondidas
+//const API_URL='https://backend-bss.herokuapp.com/'; //La URL de la Api a la cual iran todas las peticiones para ser respondidas
+const API_URL='http://192.168.0.26:5050/'; 
 let productos=[];//Arreglo de productos
 let productosEncontrados=[];//Arreglo de productos encontrados,que seran el resultado de la busqueda en la pagina
 let productosFiltrados=[];//Arreglo de productos filtrados,que seran el resultado del filtrado realizado en la pagina
@@ -39,7 +40,7 @@ const obtenerProductos=()=>{
     .then(data=>{//Cuando se recibe la respuesta sin ningun error se procede a la obtencion de los datos
         spinner.style.display='none';// En el caso de no recibir datos se marcara en pantalla que no se encontraron resultados 
         // de caso contrario se mostraran en la pagina
-        data!=undefined?
+        (data!=undefined ||data.data.length!=0)?
         (productos=data.data,mostrarProductos(productos)) : ContenedorProductos.innerHTML=`<div class="h6">No se encontraron resultados</div>`
     })
 }
@@ -67,14 +68,16 @@ const obtenerBusqueda=(buscar)=>{
         return error;
       })
     .then(data=>{
-        productosEncontrados=data.data;
-        mostrarProductos(productosEncontrados);
+
         spinner.style.display='none';
+        (data!=undefined ||data.data.length!=0)?
+        (productosEncontrados=data.data,mostrarProductos(productosEncontrados)) : ContenedorProductos.innerHTML=`<div class="h6">No se encontraron resultados</div>`
+      
     })
 }
 //Esta funcion se encargara de hacer la peticion y de obtener la respuesta del servidor para almacenar los productos filtrados a conveniencia del usuario
 const obtenerProductosFiltrados=(filtro)=>{
-    fetch(API_URL+"filtros/",{
+    fetch(API_URL+"filtros",{
         method:'POST',
         body:JSON.stringify(filtro),
         headers:{
@@ -116,6 +119,7 @@ const divFiltroCategoria=document.querySelector('#categorias');
 // esto tambien servira para saber segun los resultados se tendra que mostrar u ocultar algun elemento
 //Esta funcion se encarga de mostrar los productos sin importar su manipulacion,busqueda, filtrado  
 const mostrarProductos =(prod)=>{
+    console.log(prod);
     try {
             let listaHTML="";
             let energetica="",pisco="",ron="",bebida="",snack="",cerveza="",vodka="";
