@@ -1,0 +1,353 @@
+@import "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css";
+@import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
+header{
+    min-height: 50px;
+    margin:0;
+    background: white;
+    padding: 10px 0px ;
+    
+}
+body
+{
+    background-color:#f1f1f1;
+}
+@media  (max-width:379px) 
+{
+    .search-text
+    {
+        max-width: 70%;
+      
+    }
+}
+
+
+#titulo
+{
+    
+    justify-content: center;
+    align-items: center;
+    font-size:10px;
+    padding: 0;
+    vertical-align: middle;
+    text-align: center;
+    
+}
+.energetica,.pisco,.ron,.bebida,.snack,.cerveza,.vodka
+{
+ background: white;
+ border-radius: 25px 25px 1px 1px;
+ border: rgb(19, 13, 13);
+}
+#energetica,#pisco,#ron,#bebida,#snack,#cerveza,#vodka
+{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.descuento
+{
+    color:red;
+}
+#cargaP
+{
+
+    padding:10%
+}
+
+#tCategorias,#tProductos {
+    visibility: hidden;
+    z-index: 3;
+    right: 2.5%;
+    top: 50%;
+    border-radius: 50px;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.342);
+    max-width: 310px;
+    width: 310px;
+    opacity: 1;
+  }
+   
+  #tCategorias.show,#tProductos.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 4.6s;
+    animation: fadein 0.5s, fadeout 0.5s 4.6s;
+  }
+   
+  @-webkit-keyframes fadein {
+    from {right: 0; opacity: 0;} 
+    to {right: 2.5%; opacity: 1;}
+  }
+   
+  @keyframes fadein {
+    from {right: 0; opacity: 0;}
+    to {right: 2.5%; opacity: 1;}
+  }
+   
+  @-webkit-keyframes fadeout {
+    from {right: 2.5%; opacity: 1;} 
+    to {right: 0; opacity: 0;}
+  }
+   
+  @keyframes fadeout {
+    from {right: 2.5%; opacity: 1;}
+    to {right: 0; opacity: 0;}
+  }
+   
+  #tCategorias.hide,#tProductos.hide {
+    /* visibility: visible; */
+    -webkit-animation: fadeout 0.5s 4.8s;
+    animation: fadeout 0.5s 4.8s;
+  }
+   
+  @-webkit-keyframes fadeout {
+    from {right: 2.5%; opacity: 1;} 
+    to {right: 0; opacity: 0;}
+  }
+   
+  @keyframes fadeout {
+    from {right: 2.5%; opacity: 1;}
+    to {right: 0; opacity: 0;}
+  }
+
+#tarjeta
+{
+    text-align: center;
+    
+}
+.card img
+{
+    width:180px;
+    height:200px;
+    margin-bottom: 25px;
+}
+.card h5
+{
+    max-height: 20px;
+    margin-bottom: 60px;
+    border-bottom: dodgerblue;
+}
+
+@media (min-width:768) and (max-width:992px) 
+{
+    #filtros
+    {
+       
+       padding-bottom: 5px;
+       background: white;
+       border-radius: 25px;
+       
+    }
+    #productos
+    {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+    }
+
+}
+@media (max-width:1024px) {
+    #tCategorias,#tProductos 
+    {
+        visibility: hidden;
+        position: absolute;
+        z-index: 1;
+        right: 2.5%;
+        top: 50%;
+        border-radius: 50px;
+        box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.342);
+        max-width: 310px;
+        width: 310px;
+        opacity: 1;
+    }
+    
+    .search-box
+    {
+        transform:translate(0%,0%);
+        border-radius: 40px;
+        padding: 0;
+        z-index: 0;
+        
+    }
+    .search-btn
+    {
+        color: rgb(252, 251, 255);
+        float: right;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #b4b3b3;;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: -1;
+        margin-top: 8px;
+        
+    }
+    .search-text
+    {
+
+        content: '';
+        position: relative;
+        float: left;
+        border-radius: 15px;
+        z-index: -2;
+        left: 9%;
+        box-sizing: content-box;
+        margin:0;
+        transition: 0.4s;
+        line-height: 40px;
+        margin :0;
+        padding: 0;
+        border:0;
+        width: 121px;
+        background-color: #f1f1f1;
+        padding-left: 5px; 
+        margin-top: 8px;
+    }
+
+    #filtros
+    {
+        
+        padding-bottom: 5px;
+        background: white;
+        border-radius: 25px;
+        
+    }
+    #productos
+    {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        
+    }
+    .carro
+    {
+       color: white;
+       float: right;
+       width: 40px;
+       height: 40px;
+       margin-top: 8px;
+       border-radius: 50%;
+       background: #b4b3b3;;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+    
+ }
+
+@media(min-width:1025px){
+    
+    #search2
+    {
+        display: flex;
+    }
+    #search
+    {
+        display: none;
+    }
+    .search
+    {
+        justify-content: center;
+        align-items: center;
+    }
+    .search-box
+    {
+        transform:translate(0%,0%);
+        border-radius: 40px;
+        padding: 0;
+        z-index: 0;
+    }
+
+    .search-btn
+    {
+        color: rgb(252, 251, 255);
+        float: right;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #b4b3b3;;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    .search-text
+    {
+        content: '';
+        position: relative;
+        float: left;
+        border-radius: 15px;
+        z-index: -1;
+        left: 9%;
+        box-sizing: content-box;
+        margin:0;
+        float:right;
+        margin:0;
+        transition: 0.4s;
+        line-height: 40px;
+        width: 0px;
+        margin :0;
+        padding: 0;
+        border:0;       
+    }
+    #filtros
+    {   
+
+        padding-bottom: 5px;
+        background: white;
+        border-radius: 25px;
+    }
+    #productos
+    {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+            
+    }
+
+ }
+ @media(min-width:1024px){
+    .search-box:hover >.search-text{
+        width: 200px;
+        float: left;
+        background-color: #f1f1f1;
+        padding-left: 5px; 
+    }
+    
+    .search-box:hover >#search2{
+        display: flex;
+    }
+    
+    .search-box:hover >#search{
+        background: rgb(109, 109, 108);
+        color: #f1f1f1;
+        display: none;
+    }
+    .carro
+    {
+       color: white;
+       float: left;
+       width: 40px;
+       height: 40px;
+       margin-top: 8px;
+       border-radius: 50%;
+       background: #b4b3b3;;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+   }
+    
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+  

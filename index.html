@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+    <link rel="icon" href="imagenes/favicon.png" >
+    <link rel="stylesheet" href="Estilos/style.css">
+    <title>DESAFIO BSALE</title>
+</head>
+<body>
+              <!-- Toast Es el elemento que permite mostrar los mensajes a un costado   -->
+              <div aria-live="polite" aria-atomic="true" class="position-relative">        
+                <div class="toast-container position-absolute top-0 end-0 p-3">
+                    <!-- Toast de productos -->
+                    <div class="toast align-items-center text-white  border-0" id="tProductos" role="alert" aria-live="assertive" aria-atomic="true"  data-bs-animation="true"  >
+                        <div class="d-flex">
+                          <div class="toast-body" id="bPro">
+                           
+                          </div>
+                          <button type="button" class="btn-close btn-close-white me-2 m-auto" onclick="cerrarToast('tProductos')" aria-label="Close"></button>
+                        </div>
+                      </div>
+                         <!-- Toast de Categorias -->
+                      <div class="toast align-items-center text-white  border-0" id="tCategorias" role="alert" aria-live="assertive" aria-atomic="true" data-bs-animation="true" >
+                        <div class="d-flex">
+                          <div class="toast-body" id="bCat">
+                           
+                          </div>
+                          <button type="button" class="btn-close btn-close-white me-2 m-auto" onclick="cerrarToast('tCategorias')" aria-label="Close"></button>
+                        </div>
+                      </div>
+                         <!-- Toast de funciones -->
+                      <div class="toast align-items-center text-white  border-0" id="tFunciones" role="alert" aria-live="assertive" aria-atomic="true"  >
+                        <div class="d-flex">
+                          <div class="toast-body">
+                           
+                          </div>
+                          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                      </div>
+                </div>
+              </div>
+    <!-- Inicio del header -->
+    <header class="border-bottom border-1  shadow-lg">
+        <div class="header col-12 container-fluid">
+    
+            <div class="row row-cols-1 row-cols-lg-2 row-cols-sm-1">
+                
+                <div class="col-6 col-sm-4 col-lg-3 col-xl-3 col-xxl-2 d-flex justify-content-end">
+                    <div class="d-flex align-items-end h1">Bsale Test</div>
+                    <div class="d-flex align-self-center">tienda</div>
+                </div>
+                <div class="search col-6 col-sm-6 d-flex justify-content-end">
+                    <div class="search-box">
+                        <a class="search-btn " id="search"  href="#" style="display: none;" > <i class="bi bi-search"></i></a>
+                        <a class="search-btn " id="search2"  href="#"> <i class="bi bi-search"></i></a>
+                        <input id="buscar"  class="search-text" type="txt" placeholder="Buscar " name="">
+                        
+                    </div>
+                </div>
+                
+                <div class="col-12 col-sm-2 col-lg-3 col-xl-3 col-xxl-2">
+                    <a class="carro" href="#"> <i class="bi bi-cart3"></i></a> 
+                </div>
+            </div>
+        </div>
+       
+    </header>
+    <!-- Contenedor que se encargara de tener  todos los elementos en pantalla, con excepcion del Header ,pero cada elemento tiene sus propiedades singulares -->
+<div class="container mb-2 mt-4" id="contenedor">
+    <div class="row row-cols-1 row-cols-lg-2 row-cols-sm-1  "><!-- Asignamos las filas a utilizar, en este caso este contendor ocupara 2 de los 12 espacios -->
+        <div class="filtros col col-lg-4 col-xl-3 col-xxl-2   border border-1 mb-2 " id="filtros"><div id="titulo" class="tFiltro border-bottom border-2"><h5>Filtros</h5></div>
+            <div class="filtros border-bottom border-2">
+                <div id="titulo" class="border-bottom border-2"><h5>Rango de precios</h5></div>
+                <input class="col-1" type="radio" name="rango" value=1 checked id="rango" onclick="filtrar()"><label class="col-11" for="rango">todos</label> 
+                <input class="col-1" type="radio" name="rango" value=2 id="rango1" onclick="filtrar()"><label class="col-11" for="rango1">menores a $4999</label>
+                <input class="col-1" type="radio" name="rango" value=3 id="rango2" onclick="filtrar()"><label class="col-11" for="rango2">entre $5000 y $9999</label>
+                <input class="col-1" type="radio" name="rango" value=4 id="rango3" onclick="filtrar()"><label  class="col-11" for="rango3">entre $10000 y $14999</label>
+                <input class="col-1" type="radio" name="rango" value=5 id="rango4" onclick="filtrar()"><label class="col-11" for="rango4">mayores a $15000</label>
+            </div>
+            <div class="filtros border-bottom border-2">
+                <div id="titulo"  class="border-bottom border-2"><h5>Descuento</h5></div>
+                <input class="col-1" type="radio" name="descuento" checked value=1 id="desc" onclick="filtrar()"><label class="col-11"  for="desc">todos</label> 
+                <input class="col-1" type="radio" name="descuento" value=2 id="desc1" onclick="filtrar()"><label class="col-11" for="desc1">Con descuento</label>
+                <input class="col-1" type="radio" name="descuento" value=3 id="desc2" onclick="filtrar()"><label class="col-11" for="desc2">Sin descuento</label>
+            </div>
+            <div class="filtros" id="categorias">
+                <div id="titulo" class="border-bottom border-2"><h5>Categorias</h5></div>
+            </div>
+        </div><!-- Contenedor el cual se mostraran los productos en su respectivo contendor mostrando 4 elementos por fila -->
+        <div class="productos col  col-lg-8 col-xl-9  col-xxl-10 " id="productos" >
+                        <div class="h6" id="resultados" style="display:none">No se encontraron resultados</div> 
+                        <div id="cargaP" class="col"><img src="loading-buffering.gif" id="cargaP" alt=""></div>
+                       
+                    
+                        <div class="energetica col border border-1 " style="display:none"><h5>Energeticas</h5> </div>
+                        <div class="row" id="energetica"></div>
+                       
+                        <div class="pisco col " style="display:none" ><h5>Piscos</h5></div>
+                        <div class="row " id="pisco"> </div>
+                    
+                        <div class="ron col "style="display:none"><h5>Rones</h5></div>
+                        <div class="row" id="ron" > </div>
+                    
+                        <div class="bebida col"style="display:none"><h5>Bebidas</h5> </div>
+                        <div class="row " id="bebida"></div>
+                   
+                        <div class="snack col" style="display:none"><h5>Snacks</h5> </div>
+                        <div class="row  " id="snack"> </div>
+                    
+                        <div class="cerveza col" style="display:none"><h5>Cervezas</h5> </div>
+                        <div class="row" id="cerveza"> </div>
+                    
+                        <div class="vodka col" style="display:none"><h5>Vodkas</h5> </div>
+                        <div class="row" id="vodka"> </div>  
+        </div>
+    </div>
+</div>
+<script src="ControllerJs/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
