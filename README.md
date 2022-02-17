@@ -35,12 +35,19 @@ Carpeta imagenes | favicon.png ,loading-buffering.gif
  ##Pagina
 Esta pagina compuesta por un diseño responsivo ,lo que le permite adaptarse a la pantalla de cualquier dispositvo señalado en la documentación .
 Por Ej:
+
 ####Celular moderno
+
 ![](https://raw.githubusercontent.com/Pato2294/fronted-bs/main/ReadmeIMG/CelularModerno.png)
+
 ####Celular moderno
+
 ![](https://raw.githubusercontent.com/Pato2294/fronted-bs/main/ReadmeIMG/Tablet.png)
+
 ####Celular viejo
+
 ![](https://raw.githubusercontent.com/Pato2294/fronted-bs/main/ReadmeIMG/CelularViejo.png)
+
 
 ##Composición
 Aqui se muestra como esta compuesta la pagina ,con su header que dentro de el contiene el titulo de la pagina, seccion de busqueda ,y el carrito de compras que para este ejercicio no se pidio funcionalidad, solo traida,busqueda y filtrado de productos, debajo del header tenemos 2 secciones , filtros y productos.
