@@ -3,7 +3,7 @@
 Este ejercicio consiste en construir una tienda online que despliegue productos agrupados por la categoría a la que pertenecen, generando por separado backend (API REST) y frontend(aplicación que la consuma) y utilizando la base de datos que se disponibiliza para
 su desarrollo.
 
-#Requisitos
+# Requisitos
 
 - Conociemientos basicos de git(crear ,actualizar repositorios).
 - Conocimietos basicos de CSS ,HTML5,BOOTSTRAP 5.
@@ -12,7 +12,7 @@ su desarrollo.
 - Tener instalado git
 - Lo más importante una PC propia o prestada.
 
-#Instalación y creación de archivos
+# Instalación y creación de archivos
 
 Comenzando por la instalción de git, sigue los pasos indicados en la pagina oficial de git  https://git-scm.com/book/es/v2/Inicio---Sobre-el-Control-de-Versiones-Instalaci%C3%B3n-de-Git. Luego procedemos a la instalación del editor de codigo a utilizar ,en este caso Visual Studio code (VS code), para eso iremos a la pagina oficial de VS code ,ingresamos a https://code.visualstudio.com/download y descargamos el archivo y instalación y seguimos los pasos indicados en este link https://support.academicsoftware.eu/hc/es/articles/360006916138-C%C3%B3mo-instalar-Microsoft-Visual-Studio-Code#:~:text=Paso%201%3A%20Ve%20a%20la,acepta%20el%20acuerdo%20de%20licencia. Una vez terminado este proceso,y empezamos con la creación de archivos .
 
@@ -26,36 +26,36 @@ Carpeta imagenes | favicon.png ,loading-buffering.gif
  index.html| 
  
  
- #Diseño y Funcionamiento
+ # Diseño y Funcionamiento
  
  En esta sección veremos el diseño y funcionamiemto de nuestro proyecto, mostrando a travez de pantallazos.
  
  Primero se vera como funciona externamente el funcionamiento, al final habra explicaciones de como funciona dentro del codigo de cada función.
  
- ##Pagina
+ ## Pagina
 Esta pagina compuesta por un diseño responsivo ,lo que le permite adaptarse a la pantalla de cualquier dispositvo señalado en la documentación .
 Por Ej:
 
-####Celular moderno
+#### Celular moderno
 
 ![](https://raw.githubusercontent.com/Pato2294/fronted-bs/main/ReadmeIMG/CelularModerno.png)
 
-####Celular moderno
+#### Celular moderno
 
 ![](https://raw.githubusercontent.com/Pato2294/fronted-bs/main/ReadmeIMG/Tablet.png)
 
-####Celular viejo
+#### Celular viejo
 
 ![](https://raw.githubusercontent.com/Pato2294/fronted-bs/main/ReadmeIMG/CelularViejo.png)
 
 
-##Composición
+## Composición
 Aqui se muestra como esta compuesta la pagina ,con su header que dentro de el contiene el titulo de la pagina, seccion de busqueda ,y el carrito de compras que para este ejercicio no se pidio funcionalidad, solo traida,busqueda y filtrado de productos, debajo del header tenemos 2 secciones , filtros y productos.
 Imagen vista desde un PC
 
 ![](https://raw.githubusercontent.com/Pato2294/fronted-bs/main/ReadmeIMG/pagina.png)
 
-##Busqueda
+## Busqueda
 El buscador esta diseñado para que en la version de pc se despliegue al pasar el cursor por encima del boton como se muestra en la siguiente imagen:
 
 
@@ -75,7 +75,7 @@ En el caso que ingrese un parametro que coincida con uno o más productos los mo
 
 Como se muestra en la imagen anterior la busqueda de "bebida" muestra Energeticas y Bebidas , dado que la busqueda considera tanto el nombre del producto como su categoria
 
-##Filtros
+## Filtros
 
 Los filtros nos permitirán obtener un resultado mas especifico según las necesidades del usuario , se puede filtrar por "Rango de precios", "Descuento" y por "Categoria(as)" donde en el ultimo filtro permite seleccionar más de una categoria, continuacion se mostraran  ejemplos con un filtrado con y sin resultados.
 
@@ -84,7 +84,7 @@ Con resultados
 Sin Resultados
 ![](https://raw.githubusercontent.com/Pato2294/fronted-bs/main/ReadmeIMG/filtrosSinResultados.png)
 
-##Productos
+## Productos
 
 En esta sección es donde se despliegan los productos seccionados por categoria en 4 columnas  en versiones de PC y Tablet con  Resoluciones con un ancho superiores o iguales a 768 pixeles en dispositivos con resolucion inferior se desplegaran en un sola columna, como pudieron observar anteriormente las imagenes de Celulares, Tablets y PC, cada producto contiene su imagen, su nombre y su valor.
 
@@ -96,11 +96,11 @@ Si al cargar la pagina y tuvo algún problema al traer los productos se le indic
 
 ![](https://raw.githubusercontent.com/Pato2294/fronted-bs/main/ReadmeIMG/ServidorFallido.png)
 
-##Detras del telón (codigo)
+## Detras del telón (codigo)
 
 En esta seccion veremos un poco más detallado el funcionamiento de al App dentro del codigo y asi veremos como se logra los resultados vistos anteriormente.
 
-###Librerias y Scripts Ocupados
+### Librerias y Scripts Ocupados
 ```html
 <!DOCTYPE html>
 <link rel="icon" href="imagenes/favicon.png" > 
@@ -115,7 +115,7 @@ En esta seccion veremos un poco más detallado el funcionamiento de al App dentr
 
 Para dudas sobre las propiedades Bootstrap que verán mas adelante les adjunto el link de documentacion de elementos y funciones de Bootstrap :https://getbootstrap.com/docs/5.0/getting-started/introduction/
 
-###Variables Generales
+### Variables Generales
 ```javascript
 const API_URL='https://backend-bss.herokuapp.com/'; La URL de la Api a la cual iran todas las peticiones para ser respondidas y devueltas al App
 
@@ -128,7 +128,8 @@ let ContenedorProductos=document.querySelector('#resultados');Variable que obtie
 let ContenedorCategorias=document.querySelector('#categorias'); En este caso los contenedores de productos y categorias
 ```
 
-###Buscar 
+### Buscar 
+
 Buscar esta compuesto un encapsulado que gracias a sus propiedades de Bootstrap 5 y propiedades que se le dieron en el archivo style.css ,le permite estar posicionado en el lugar y la apariencia que se muestra en las demostraciones anteriores 
 
 ```html
@@ -192,7 +193,7 @@ const obtenerBusqueda=(buscar)=>{
 } 
 ```
 
-###Filtrar
+### Filtrar
 Los Filtros estan compuestos por tres secciones “Rango de precios”, “Descuento” y por “Categoria(as)",las primeras dos secciones contienen los elementos radio-button que permetiran selecionar solo un elemento por seccion, en cambio la ultima permite seleciona una o mas opciones dado que esta formado por elementos checkbox las cuales son cargadas por la funcion mostrarCategorias detallada mas adelante, cada elemento al selecionarse detona el metodo filtrar()
 
 ```html
@@ -281,7 +282,7 @@ La funcion obtenerProductosFiltrados() al igual que la funcion obtenerBusqueda r
 ###Categorias y Productos
 La obtencion de categorias pasan por el mismo proceso que los anteriores metodos a partir de una peticion a API con su respectiva URL,  a traves las funciones obtenerCategorias() y obtenerProductos y dependiendo de la respuesta prosigue si accede a las funciones  mostrarCategorias() y mostrarProductos() respectivamente como se muestra a continuación
 
-####Categorias
+#### Categorias
  ```javascript
  const obtenerCategorias=()=>{
     fetch(API_URL+"categorias")
@@ -300,7 +301,7 @@ La obtencion de categorias pasan por el mismo proceso que los anteriores metodos
   ```
   En esta funcion al recibir los datos de la respuesta genera codigo HTML  con un elemento checbox por cada categoria recibida con su respectivos datos como el nombre y el id ,esto se logra gracias a propiedad innerHTML que permite inyectar codigo HTML a un elemento asignado en este caso en contenido de la seccion de categorias que se indico anteriormente.
   
-    ```javascript
+ ```javascript
 	const mostrarCategorias =(categorias)=>{
     let listaCategorias="";
     if(categorias!=undefined){
@@ -311,9 +312,11 @@ La obtencion de categorias pasan por el mismo proceso que los anteriores metodos
         listaFiltroCategoria.innerHTML+=listaCategorias;
     }else{
         ContenedorCategorias.innerHTML+=`<div class="h6 p-1">No se encontraron resultados</div>`;
-    }} ```
+    }} 
+```
+    
 
-####Productos
+#### Productos
 
 ```javascript
 const obtenerProductos=()=>
