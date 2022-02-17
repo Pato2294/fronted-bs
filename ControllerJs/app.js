@@ -89,8 +89,6 @@ const obtenerBusqueda=(buscar)=>{
             productosEncontrados.length!=0? 
             (productosEncontrados=data.data,mostrarProductos(productosEncontrados),ContenedorProductos.style.display="none") : (mostrarProductos(productosEncontrados),ContenedorProductos.style.display="block");
         }
-        
-      
     })
 }
 //Esta funcion se encargara de hacer la peticion y de obtener la respuesta del servidor para almacenar los productos filtrados a conveniencia del usuario
