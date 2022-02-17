@@ -109,7 +109,8 @@ En esta seccion veremos un poco más detallado el funcionamiento de al App dentr
 @import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
 <script src="ControllerJs/app.js"></script>Archivo de javascript donde trabajaremos todas las funciones vistas más adelante.
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>Estas dos ultimas librerias corresponden a Bootstrap y popper que permitiran ejecuctar metodos y acceder a propiedades permitiendo visualizar el funcionamiento correctos de los elementos de dichas librerias.```
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>Estas dos ultimas librerias corresponden a Bootstrap y popper que permitiran ejecuctar metodos y acceder a propiedades permitiendo visualizar el funcionamiento correctos de los elementos de dichas librerias.
+```
 
 
 Para dudas sobre las propiedades Bootstrap que verán mas adelante les adjunto el link de documentacion de elementos y funciones de Bootstrap :https://getbootstrap.com/docs/5.0/getting-started/introduction/
@@ -143,15 +144,15 @@ Buscar esta compuesto un encapsulado que gracias a sus propiedades de Bootstrap 
 				
 Partimos con la captura del evento click para poder ejecutar el metodo buscar()
 
-```
+```javascript
  document.getElementById("search2").addEventListener("click", function() {
        buscar();
-      });     
-```	
-
-El metodo buscar hace visible el Spinner(imagen de carga de procesos) mientras se ejecuta el metodo , luego recibe lo capturado del input del buscador ,determina si se ingreso texto al buscador a traves de un if, si no se ingreso texto llama un metodo de alerta el cual se muestra en este caso que el input no debe quedar  vacio y detiene el Spinner, en caso que haya texto lo guarda y llama al metodo obtenerBusqueda() con el parametro con el texto obtenido. 
+      });	
 
 ```
+El metodo buscar hace visible el Spinner(imagen de carga de procesos) mientras se ejecuta el metodo, luego recibe lo capturado del input del buscador ,determina si se ingreso texto al buscador a traves de un if, si no se ingreso texto llama un metodo de alerta el cual se muestra en este caso que el input no debe quedar  vacio y detiene el Spinner, en caso que haya texto lo guarda y llama al metodo obtenerBusqueda() con el parametro con el texto obtenido. 
+
+```javascript
 const buscar =()=>{
     spinner.style.display='block';
     const productosBusqueda={
@@ -187,9 +188,12 @@ const obtenerBusqueda=(buscar)=>{
             (productosEncontrados=data.data,mostrarProductos(productosEncontrados),ContenedorProductos.style.display="none") : (mostrarProductos(productosEncontrados),ContenedorProductos.style.display="block");
         }
     })
-}```
+} 
+```
+
 ###Filtrar
 Los Filtros estan compuestos por tres secciones “Rango de precios”, “Descuento” y por “Categoria(as)",las primeras dos secciones contienen los elementos radio-button que permetiran selecionar solo un elemento por seccion, en cambio la ultima permite seleciona una o mas opciones dado que esta formado por elementos checkbox las cuales son cargadas por la funcion mostrarCategorias detallada mas adelante, cada elemento al selecionarse detona el metodo filtrar()
+
 ```html
 <!DOCTYPE html>
  <div class="filtros col col-lg-4 col-xl-3 col-xxl-2   border border-1 mb-2 " id="filtros"><div id="titulo" class="tFiltro border-bottom border-2"><h5>Filtros</h5></div>
@@ -242,7 +246,8 @@ const filtrar =()=>{
        obtenerProductosFiltrados(filtrosProductos);
     
    } 
-	  ```	  
+   ```
+   
 La funcion obtenerProductosFiltrados() al igual que la funcion obtenerBusqueda realiza un peticion y dependiendo de la respuesta envia una alerta o procede a enviar los datos a la funcion mostrarProductos().
  ```
  const obtenerProductosFiltrados=(filtro)=>{
