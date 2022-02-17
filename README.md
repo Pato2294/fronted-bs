@@ -171,7 +171,7 @@ const buscar =()=>{
 
 En el metodo obtenerBusqueda se recibe el parametro con el texto ingresado por el usuario, y atraves la metpdo fetch, realiza la peticion a una url especifica que corresponde a la API(Backend) , mandandole el parametro para ser procesado, una vez procesado y la API entrega una respuesta y si es exitosa devolvera los productos segun los resultado de la busqueda, si el resultado no contiene datos llamara a activara el elementos que indica que no hay resultados como se vio en el ejemplo de Busqueda sin resultados,y en caso que si hayan resultados los guardara y llamara al metodo mostrarProductos()
 
-```
+```javascript
 const obtenerBusqueda=(buscar)=>{
     fetch(API_URL+"buscar/"+buscar.busqueda)
     .then(response => response.json())
@@ -216,10 +216,11 @@ Los Filtros estan compuestos por tres secciones “Rango de precios”, “Descu
                 <div id="titulo" class="border-bottom border-2"><h5>Categorias</h5></div>
             </div>
         </div>
-		```
-
-El metodo filtrar obtiene los elementos y los recorre para saber cual o cuales fueron selecionado para luego crear un objeto con tres parametros ,en representacion a cada filtro, y luego ser enviado a la función obtenerProductosFiltrados(). 
 ```
+
+El metodo filtrar obtiene los elementos y los recorre para saber cual o cuales fueron selecionado para luego crear un objeto con tres parametros ,en representacion a cada filtro, y luego ser enviado a la función obtenerProductosFiltrados().
+
+```javascript
 const filtrar =()=>{
     spinner.style.display='block';
     let rango=0,desc=0,cat=[];
@@ -250,7 +251,8 @@ const filtrar =()=>{
    ```
    
 La funcion obtenerProductosFiltrados() al igual que la funcion obtenerBusqueda realiza un peticion y dependiendo de la respuesta envia una alerta o procede a enviar los datos a la funcion mostrarProductos().
- ```
+
+ ```javascript
  const obtenerProductosFiltrados=(filtro)=>{
     fetch(API_URL+"filtros",{
         method:'POST',
@@ -280,7 +282,7 @@ La funcion obtenerProductosFiltrados() al igual que la funcion obtenerBusqueda r
 La obtencion de categorias pasan por el mismo proceso que los anteriores metodos a partir de una peticion a API con su respectiva URL,  a traves las funciones obtenerCategorias() y obtenerProductos y dependiendo de la respuesta prosigue si accede a las funciones  mostrarCategorias() y mostrarProductos() respectivamente como se muestra a continuación
 
 ####Categorias
- ```
+ ```javascript
  const obtenerCategorias=()=>{
     fetch(API_URL+"categorias")
     .then(response => response.json())
@@ -297,7 +299,8 @@ La obtencion de categorias pasan por el mismo proceso que los anteriores metodos
 }
   ```
   En esta funcion al recibir los datos de la respuesta genera codigo HTML  con un elemento checbox por cada categoria recibida con su respectivos datos como el nombre y el id ,esto se logra gracias a propiedad innerHTML que permite inyectar codigo HTML a un elemento asignado en este caso en contenido de la seccion de categorias que se indico anteriormente.
-    ```
+  
+    ```javascript
 	const mostrarCategorias =(categorias)=>{
     let listaCategorias="";
     if(categorias!=undefined){
@@ -311,7 +314,8 @@ La obtencion de categorias pasan por el mismo proceso que los anteriores metodos
     }} ```
 
 ####Productos
-```
+
+```javascript
 const obtenerProductos=()=>
 {
     fetch(API_URL+"productos")//indicamos la direccion a la URL correspondiente al servidor
@@ -331,9 +335,10 @@ const obtenerProductos=()=>
     })
 }
 ```
-En mostrarProductos se declaran variables que representan elementos de la pagina en este caso secciones de categoria en la seccion de productos , las cuales se llenaran atraves de injeccion HTML con el metodo mencionado en categorias ,por medio de un filtrado de id, si el producto corresponde a cierta categoria, el producto se agregara a la seccion de dicha categoria, si una o varias categorias estan sin productos dicha categoria no sera mostrada en la seccion de productos ,y en el caso de no haber ningun producto se activa el elemento indicado ,como puede ser en caso de recibir los datos de las funciones obtenerProductosFiltrados() y obtenerBusqueda(), cuyo resultado sea vacio, se indicara en pantalla como se muestro en el ejemplo de filtro y busqueda sin resultado
-```
-// Estas variables alamacenan la propiedades de los elementon indicados por sus ids o sus clases segun la conveniencia para generar el seteo o el ingreso de datos a la pagina
+En mostrarProductos se declaran variables que representan elementos de la pagina en este caso secciones de categoria en la seccion de productos , las cuales se llenaran atraves de injeccion HTML con el metodo mencionado en categorias ,por medio de un filtrado de id, si el producto corresponde a cierta categoria, el producto se agregara a la seccion de dicha categoria, si una o varias categorias estan sin productos dicha categoria no sera mostrada en la seccion de productos ,y en el caso de no haber ningun producto se activa el elemento indicado ,como puede ser en caso de recibir los datos de las funciones obtenerProductosFiltrados() y obtenerBusqueda(), cuyo resultado sea vacio, se indicara en pantalla como se muestro en el ejemplo de filtro y busqueda sin resultado.
+
+```javascript
+// Estas variables alamacenan la propiedades de los elementos indicados por sus ids o sus clases segun la conveniencia para generar el seteo o el ingreso de datos a la pagina
 const listaEnergeticas=document.querySelector('#energetica');
 const listaPisco=document.querySelector('#pisco');
 const listaRones=document.querySelector('#ron');
