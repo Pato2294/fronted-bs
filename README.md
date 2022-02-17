@@ -119,13 +119,13 @@ Para dudas sobre las propiedades Bootstrap que verán mas adelante les adjunto e
 ```javascript
 const API_URL='https://backend-bss.herokuapp.com/'; La URL de la Api a la cual iran todas las peticiones para ser respondidas y devueltas al App
 
-let productos=[];Arreglo de productos
-let productosEncontrados=[];Arreglo de productos encontrados,que seran el resultado de la busqueda en la pagina
-let productosFiltrados=[];Arreglo de productos filtrados,que seran el resultado del filtrado realizado en la pagina
-let categorias=[];Arreglo que almacenara las categorias para ser utilizadas como filtrado
-let spinner=document.querySelector('#cargaP');Elemento que indicara cuando una accion aun sigue en proceso
-let ContenedorProductos=document.querySelector('#resultados');Variable que obtiene las propiedades de un elemento selecionado
-let ContenedorCategorias=document.querySelector('#categorias'); En este caso los contenedores de productos y categorias
+let productos=[];//Arreglo de productos
+let productosEncontrados=[];//Arreglo de productos encontrados,que seran el resultado de la busqueda en la pagina
+let productosFiltrados=[];//Arreglo de productos filtrados,que seran el resultado del filtrado realizado en la pagina
+let categorias=[];//Arreglo que almacenara las categorias para ser utilizadas como filtrado
+let spinner=document.querySelector('#cargaP');//Elemento que indicara cuando una accion aun sigue en proceso
+let ContenedorProductos=document.querySelector('#resultados');//Variable que obtiene las propiedades de un elemento selecionado
+let ContenedorCategorias=document.querySelector('#categorias');// En este caso los contenedores de productos y categorias
 ```
 
 ### Buscar 
