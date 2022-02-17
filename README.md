@@ -58,7 +58,9 @@ Imagen vista desde un PC
 ##Busqueda
 El buscador esta diseñado para que en la version de pc se despliegue al pasar el cursor por encima del boton como se muestra en la siguiente imagen:
 
+
 ![](https://raw.githubusercontent.com/Pato2294/fronted-bs/main/ReadmeIMG/CursorEnBusqueda.png)
+
 Este Buscador al escribirle un parametro de busqueda que puede ser cual cosa (numeros,letras,simbolos). En el caso que no se ingrese nada y haga click en buscar aparecera un mensaje de error y no proseguira con la busqueda, como se muestra a continuacion.
 
 ![](https://raw.githubusercontent.com/Pato2294/fronted-bs/main/ReadmeIMG/busquedaVacia.png)
@@ -140,7 +142,7 @@ Buscar esta compuesto un encapsulado que gracias a sus propiedades de Bootstrap 
                 </div>```
 				
 Partimos con la captura del evento click para poder ejecutar el metodo buscar()
-```javascript
+```
  document.getElementById("search2").addEventListener("click", function() {
        buscar();
       });     
