@@ -109,9 +109,9 @@ En esta seccion veremos un poco más detallado el funcionamiento de al App dentr
 @import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
 <script src="ControllerJs/app.js"></script>Archivo de javascript donde trabajaremos todas las funciones vistas más adelante.
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>Estas dos ultimas librerias corresponden a Bootstrap y popper que permitiran ejecuctar metodos y acceder a propiedades permitiendo visualizar el funcionamiento correctos de los elementos de dichas librerias. 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>Estas dos ultimas librerias corresponden a Bootstrap y popper que permitiran ejecuctar metodos y acceder a propiedades permitiendo visualizar el funcionamiento correctos de los elementos de dichas librerias.```
 
-```
+
 Para dudas sobre las propiedades Bootstrap que verán mas adelante les adjunto el link de documentacion de elementos y funciones de Bootstrap :https://getbootstrap.com/docs/5.0/getting-started/introduction/
 
 ###Variables Generales
@@ -142,12 +142,15 @@ Buscar esta compuesto un encapsulado que gracias a sus propiedades de Bootstrap 
                 </div>```
 				
 Partimos con la captura del evento click para poder ejecutar el metodo buscar()
+
 ```
  document.getElementById("search2").addEventListener("click", function() {
        buscar();
       });     
-```	  
-El metodo buscar hace visible el Spinner(imagen de carga de procesos) mientras se ejecuta el metodo , luego recibe lo capturado del input del buscador ,determina si se ingreso texto al buscador a traves de un if, si no se ingreso texto llama un metodo de alerta el cual se muestra en este caso que el input no debe quedar  vacio y detiene el Spinner, en caso que haya texto lo guarda y llama al metodo obtenerBusqueda() con el parametro con el texto obtenido.  
+```	
+
+El metodo buscar hace visible el Spinner(imagen de carga de procesos) mientras se ejecuta el metodo , luego recibe lo capturado del input del buscador ,determina si se ingreso texto al buscador a traves de un if, si no se ingreso texto llama un metodo de alerta el cual se muestra en este caso que el input no debe quedar  vacio y detiene el Spinner, en caso que haya texto lo guarda y llama al metodo obtenerBusqueda() con el parametro con el texto obtenido. 
+
 ```
 const buscar =()=>{
     spinner.style.display='block';
@@ -163,7 +166,9 @@ const buscar =()=>{
     obtenerBusqueda(productosBusqueda);
 }	  
 ```
+
 En el metodo obtenerBusqueda se recibe el parametro con el texto ingresado por el usuario, y atraves la metpdo fetch, realiza la peticion a una url especifica que corresponde a la API(Backend) , mandandole el parametro para ser procesado, una vez procesado y la API entrega una respuesta y si es exitosa devolvera los productos segun los resultado de la busqueda, si el resultado no contiene datos llamara a activara el elementos que indica que no hay resultados como se vio en el ejemplo de Busqueda sin resultados,y en caso que si hayan resultados los guardara y llamara al metodo mostrarProductos()
+
 ```
 const obtenerBusqueda=(buscar)=>{
     fetch(API_URL+"buscar/"+buscar.busqueda)
