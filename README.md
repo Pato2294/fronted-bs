@@ -429,4 +429,4 @@ const mostrarProductos =(prod)=>{
                 }   
 }
 ```
-Para saber como responde el Backend al Fronted [Haz click aquí](https://github.com/Pato2294/bknBs)
+Para saber como responde el Backend al Fronted [Haz click aquí](https://github.com/Pato2294/bkndBs)
