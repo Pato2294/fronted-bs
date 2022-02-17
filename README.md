@@ -140,7 +140,8 @@ Buscar esta compuesto un encapsulado que gracias a sus propiedades de Bootstrap 
                         <input id="buscar"  class="search-text" type="txt" placeholder="Buscar " name="">
                         
                     </div>
-                </div>```
+                </div>
+```
 				
 Partimos con la captura del evento click para poder ejecutar el metodo buscar()
 
@@ -148,8 +149,8 @@ Partimos con la captura del evento click para poder ejecutar el metodo buscar()
  document.getElementById("search2").addEventListener("click", function() {
        buscar();
       });	
-
 ```
+
 El metodo buscar hace visible el Spinner(imagen de carga de procesos) mientras se ejecuta el metodo, luego recibe lo capturado del input del buscador ,determina si se ingreso texto al buscador a traves de un if, si no se ingreso texto llama un metodo de alerta el cual se muestra en este caso que el input no debe quedar  vacio y detiene el Spinner, en caso que haya texto lo guarda y llama al metodo obtenerBusqueda() con el parametro con el texto obtenido. 
 
 ```javascript
