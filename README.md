@@ -40,7 +40,7 @@ Por Ej:
 
 ![](https://raw.githubusercontent.com/Pato2294/fronted-bs/main/ReadmeIMG/CelularModerno.png)
 
-#### Celular moderno
+#### Tablet
 
 ![](https://raw.githubusercontent.com/Pato2294/fronted-bs/main/ReadmeIMG/Tablet.png)
 
